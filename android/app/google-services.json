@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "938310553411",
+    "project_id": "ayokesitu-34c0a",
+    "storage_bucket": "ayokesitu-34c0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938310553411:android:6de538e27e96be866fe9f6",
+        "android_client_info": {
+          "package_name": "ayokesituv2.ayokesituv2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_O4TLl8BALwBFqEolnPwcAHjMo2Iz3pY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
