@@ -5,6 +5,8 @@ import '../controllers/otp_controller.dart';
 class OTPVerificationScreen extends StatelessWidget {
   final OTPVerificationController controller = OTPVerificationController();
 
+  OTPVerificationScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

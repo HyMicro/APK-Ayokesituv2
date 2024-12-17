@@ -210,7 +210,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             buildTextField("Location", locationController),
             buildTextField("Phone Number", phoneNumberController),
             SizedBox(height: 20),
-            Container(
+            SizedBox(
               width: 200,
               height: 43,
               child: TextButton(

@@ -8,12 +8,12 @@ class RekomendasiWidget extends StatelessWidget {
   final double rating;
 
   const RekomendasiWidget({
-    Key? key,
+    super.key,
     required this.imageUrl,
     required this.title,
     required this.location,
     required this.rating,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

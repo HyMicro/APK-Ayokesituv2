@@ -124,7 +124,7 @@ class Location extends GetView<LocationController> {
                         const SizedBox(height: 10),
                         ElevatedButton(
                           onPressed: tour.location != null
-                              ? () => launchURL(tour.location!)
+                              ? () => launchURL(tour.location)
                               : null, // Disable button if location is null
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,

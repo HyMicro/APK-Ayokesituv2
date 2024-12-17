@@ -5,6 +5,8 @@ import '../controllers/signin_controller.dart';
 class SignInScreen extends StatelessWidget {
   final SignInController controller = SignInController();
 
+  SignInScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

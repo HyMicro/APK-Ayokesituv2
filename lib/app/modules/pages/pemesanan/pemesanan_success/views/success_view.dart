@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import '../controller/success_controller.dart';
 
 class SuccessView extends GetView<SuccessController> {
+  const SuccessView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,11 +65,11 @@ class SuccessView extends GetView<SuccessController> {
                   // Define what happens on pressing Continue, e.g., navigate back to the main screen
                   Get.offAllNamed('/home');
                 },
-                child: Text("Continue"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   minimumSize: Size(double.infinity, 50),
                 ),
+                child: Text("Continue"),
               ),
             ],
           ),
@@ -83,7 +85,7 @@ class DetailRow extends StatelessWidget {
   final String value;
   final bool isStatus;
 
-  DetailRow({required this.label, required this.value, this.isStatus = false});
+  const DetailRow({super.key, required this.label, required this.value, this.isStatus = false});
 
   @override
   Widget build(BuildContext context) {

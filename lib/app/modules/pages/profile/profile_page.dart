@@ -197,7 +197,7 @@ class ProfilePage extends GetView {
                       ),
                       const SizedBox(width: 20),
                       const Text(
-                        'Payment Method',
+                        'My Location',
                         style: TextStyle(
                             color: Colors.black,
                             fontFamily: 'WorkSans',
@@ -205,7 +205,7 @@ class ProfilePage extends GetView {
                             fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 60,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),

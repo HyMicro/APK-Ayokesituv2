@@ -1,9 +1,14 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class CheckoutController extends GetxController {
+  final Connectivity _connectivity = Connectivity();
+  final LocalController = GetStorage();
+
   // Variables to hold user inputs
   var selectedPaymentMethod = ''.obs;
   var creditCardText = ''.obs;
@@ -11,6 +16,7 @@ class CheckoutController extends GetxController {
   var expirationDateText = ''.obs;
   var cvvText = ''.obs;
   var isBillingSameAsShipping = false.obs;
+  var connectingInternet = false.obs;
 
   final CollectionReference reference =
       FirebaseFirestore.instance.collection("tiket");
@@ -26,12 +32,15 @@ class CheckoutController extends GetxController {
   void onInit() {
     super.onInit();
     _initSpeech();
+    _connectivity.onConnectivityChanged.listen((connectivityResults) {
+      // Jika connectivityResults adalah List<ConnectivityResult>, kita ambil hasil pertama
+      if (connectivityResults.first == ConnectivityResult.none)
+        connectingInternet(false);
+      else
+        connectingInternet(true);
+      update();
+    });
     // No need to add listeners for RxString values as they update reactively.
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 
   void _initSpeech() async {
@@ -125,7 +134,14 @@ class CheckoutController extends GetxController {
   // Add a new booking
   Future<void> addBooking(Map<String, dynamic> bookingData) async {
     try {
-      await reference.add(bookingData);
+      if (connectingInternet.value) {
+        await reference.add(bookingData);
+      } else {
+        await LocalController.write("booking data", bookingData);
+      }
+
+      final savedLocale = await LocalController.read('booking data');
+      print("booking data ${savedLocale}");
     } catch (e) {
       Get.snackbar('Error', 'Failed to add booking: $e');
     }

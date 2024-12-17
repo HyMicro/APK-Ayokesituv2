@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FavoritePage extends StatelessWidget {
+  const FavoritePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +95,7 @@ class FavoriteCard extends StatelessWidget {
   final String description;
   final String imageUrl;
 
-  const FavoriteCard({
+  const FavoriteCard({super.key, 
     required this.title,
     required this.price,
     required this.rating,
